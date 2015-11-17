@@ -1,6 +1,41 @@
+$orange: #f26522;
+
 .wrap {
-    padding-top: 50px;
+    padding-top: 75px;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -315px;
+    padding-bottom: 315px;
+}
+.section {
+    padding: 25px 0;
 }
 .orange{
-	background-color: #f26522;
+	background-color: $orange;
+}
+.orange h1,.orange h2,.orange h3,.orange h4,.orange h5,.orange h6,.orange p,.fw-image p,.fw-image a{
+	color: #ffffff;
+}
+.fw-image a{
+	font-weight: bold;
+}
+.white{
+	background-color: #fff;
+}
+.blue{
+	background-color: #333d4d;
+}
+.landing-phone{
+	margin-top:-30%
+}
+.hyphenate {
+ -ms-word-break: break-all;
+     word-break: break-all;
+
+     // Non standard for webkit
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
 }

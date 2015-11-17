@@ -1,0 +1,49 @@
+.splash{
+	text-align:center
+}
+.splash h1{
+	color: #fff;
+	text-shadow: 2px 2px 8px #000;
+	padding:10%;
+}
+.accordion.row{
+	border-top:1px solid #6D6D6D;
+}
+.accordion h2{
+	float:left;
+	margin: 10px 0 40px;
+	width: 90%;
+}
+.accordion .glyphicon-menu-down{
+	float:right;
+	font-size:24px;
+    margin:10px 0 40px;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.accordion .glyphicon.open{
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg); /* Standard syntax */
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.image-cicrle-mask{
+	background: #f26522;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+.image-cicrle-mask img{
+	height:90px;
+}
+@media (max-width: 992px) {
+	.phone-outlines:nth-child(odd),
+	.heart-infogfx:nth-child(odd) {
+	    clear: both;
+	}
+}

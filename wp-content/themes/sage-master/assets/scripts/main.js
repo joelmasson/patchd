@@ -19,6 +19,28 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        $('#nav-icon2').click(function(){
+          $(this).toggleClass('open');
+        });
+        $('.accordion .glyphicon').click(function(){
+          $(this).toggleClass('open');
+        });
+        var oldSSB = $.fn.modal.Constructor.prototype.setScrollbar;
+        $.fn.modal.Constructor.prototype.setScrollbar = function () 
+        {
+            oldSSB.apply(this);
+            if(this.bodyIsOverflowing && this.scrollbarWidth) 
+            {
+                $('.navbar-fixed-top, .navbar-fixed-bottom').css('padding-right', this.scrollbarWidth);
+            }       
+        }
+
+        var oldRSB = $.fn.modal.Constructor.prototype.resetScrollbar;
+        $.fn.modal.Constructor.prototype.resetScrollbar = function () 
+        {
+            oldRSB.apply(this);
+            $('.navbar-fixed-top, .navbar-fixed-bottom').css('padding-right', '');
+        }
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
