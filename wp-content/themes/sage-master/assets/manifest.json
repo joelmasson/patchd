@@ -12,8 +12,14 @@
       ],
       "main": true
     },
+    "flexslider.css": {
+      "bower": ["flexslider"]
+    },
     "jquery.js": {
       "bower": ["jquery"]
+    },
+    "flexslider.js": {
+      "bower": ["flexslider"]
     }
   },
   "config": {

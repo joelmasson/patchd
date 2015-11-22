@@ -25,6 +25,7 @@
         $('.accordion .glyphicon').click(function(){
           $(this).toggleClass('open');
         });
+        $('.flexslider').flexslider();
         var oldSSB = $.fn.modal.Constructor.prototype.setScrollbar;
         $.fn.modal.Constructor.prototype.setScrollbar = function () 
         {
@@ -33,14 +34,14 @@
             {
                 $('.navbar-fixed-top, .navbar-fixed-bottom').css('padding-right', this.scrollbarWidth);
             }       
-        }
+        };
 
         var oldRSB = $.fn.modal.Constructor.prototype.resetScrollbar;
         $.fn.modal.Constructor.prototype.resetScrollbar = function () 
         {
             oldRSB.apply(this);
             $('.navbar-fixed-top, .navbar-fixed-bottom').css('padding-right', '');
-        }
+        };
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

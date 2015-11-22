@@ -1,7 +1,6 @@
 <?php 
-
-//echo $_SERVER['SERVER_NAME'];
-
+$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+$root = end(explode('.', $root));
 ?>
 
 
@@ -47,8 +46,35 @@
           </a>
         </div>
         <div class="col-xs-4 dropdown">
-          <a class="pull-right" href="#">
-            <h6 style="font-size:20px;font-weight:100;">Shop <span class="hidden-xs">Patch'd</span></h6>
+          <?php
+          if ($root == 'com/' || $root == 'ca/' || $root == 'http://localhost:8888/'){
+          echo '<a class="pull-right" href="http://shop.getpatchd.com">
+            <h6 style="font-size:20px;font-weight:100;">Shop <span class="hidden-xs">Patch\'d</span></h6>
+          </a>
+          <div class="current-nation dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <img class="pull-left hidden-xs" src="/patchd/wp-content/themes/sage-master/assets/images/flag-us.svg">
+            <div>
+              <span>AUD</span>
+              <span class="glyphicon glyphicon-chevron-down" data-unicode="e114"></span>
+            </div>
+          </div>
+          <ul id="nav-nationality" class="dropdown-menu">
+            <li>
+              <a href="http://getpatchd.com.au">
+                <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-aus.svg">
+                <span>USA</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://patchd.co.uk">
+                <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-uk.svg">
+                <span>UK</span>
+              </a>
+            </li>
+          </ul>';
+          } elseif ($root == 'au/') {
+          echo '<a class="pull-right" href="http://shop.getpatchd.com.au">
+            <h6 style="font-size:20px;font-weight:100;">Shop <span class="hidden-xs">Patch\'d</span></h6>
           </a>
           <div class="current-nation dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="pull-left hidden-xs" src="/patchd/wp-content/themes/sage-master/assets/images/flag-aus.svg">
@@ -59,18 +85,45 @@
           </div>
           <ul id="nav-nationality" class="dropdown-menu">
             <li>
-              <a href="#">
+              <a href="http://patchd.co.uk">
                 <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-uk.svg">
                 <span>UK</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://getpatchd.com">
                 <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-us.svg">
                 <span>USA</span>
               </a>
             </li>
-          </ul>
+          </ul>';
+          }
+           elseif ($root == 'uk/') {
+          echo '<a class="pull-right" href="http://shop.patchd.co.uk">
+            <h6 style="font-size:20px;font-weight:100;">Shop <span class="hidden-xs">Patch\'d</span></h6>
+          </a>
+          <div class="current-nation dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <img class="pull-left hidden-xs" src="/patchd/wp-content/themes/sage-master/assets/images/flag-uk.svg">
+            <div>
+              <span>AUD</span>
+              <span class="glyphicon glyphicon-chevron-down" data-unicode="e114"></span>
+            </div>
+          </div>
+          <ul id="nav-nationality" class="dropdown-menu">
+            <li>
+              <a href="http://getpatchd.com.au">
+                <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-aus.svg">
+                <span>UK</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://getpatchd.com">
+                <img src="/patchd/wp-content/themes/sage-master/assets/images/flag-us.svg">
+                <span>USA</span>
+              </a>
+            </li>
+          </ul>';
+          } ?>
         </div>
       </div>
     </div>
