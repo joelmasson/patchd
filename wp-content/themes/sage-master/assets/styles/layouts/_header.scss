@@ -1,5 +1,5 @@
 .site-logo{
-  background-image: url('/patchd/wp-content/themes/sage-master/assets/images/patchd-logo-sprite.png');
+  background-image: url('/../wp-content/themes/sage-master/assets/images/patchd-logo-sprite.png');
   height: 52px;
   width: 165px;
   margin: 11px auto;
@@ -10,6 +10,19 @@
 .dropdown.col-xs-4{
   padding-top: 16px;
   padding-bottom: 16px;
+}
+#modalButton{
+  display: inline-block;
+  cursor: pointer;
+}
+#modalButton h6{
+  font-size: 20px;
+  font-weight: 100;
+  color: #f26522;
+  padding-top: 19px;
+}
+#modalButton:hover h6{
+  color:#707070;
 }
 #nav-icon2 {
   width: 27px;
@@ -28,7 +41,7 @@
   cursor: pointer;
   border: none;
   background: transparent;
-  z-index: 1051;
+  z-index: 1101;
 }
 
 #nav-icon2 span {
@@ -120,6 +133,9 @@
   height: 35px;
   padding-top: 8px;
 }
+.current-nation:hover {
+    color: #707070;
+}
 .current-nation div{
   float:left;
   text-align:center;
@@ -136,9 +152,12 @@
       margin: 19px auto;
       width: 115px;
   }
-}
-@media (max-width: 400px) {
   .current-nation{
       float:right;
+      padding: 0;
+      clear:both;
+  }
+  .shop-link{
+      margin-top: -11px;
   }
 }

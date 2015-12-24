@@ -20,6 +20,9 @@
     },
     "flexslider.js": {
       "bower": ["flexslider"]
+    },
+    "jarallax.js": {
+      "bower": ["jarallax"]
     }
   },
   "config": {

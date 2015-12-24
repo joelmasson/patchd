@@ -88,6 +88,7 @@ function display_sidebar() {
     is_front_page(),
     is_page_template('template-custom.php'),
     is_page_template('template-patchd.php'),
+    is_page_template('template-parallax.php'),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -106,5 +107,6 @@ function assets() {
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_enqueue_script('custom', Assets\asset_path('scripts/flexslider.js'), [], null, true);
+  wp_enqueue_script('custom2', Assets\asset_path('scripts/jarallax.js'), [], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

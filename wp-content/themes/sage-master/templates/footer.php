@@ -5,8 +5,8 @@
         <div class="col-xs-0 col-sm-2"></div>
         <div class="col-xs-12 col-sm-8">
            <div>
+              <h2 id="newsletter-headline"><?php the_field('sign_up_message', 'option'); ?></h2>
               <div id="newsletter-form">
-                <h2><?php the_field('sign_up_message', 'option'); ?></h2>
                 <span class="glyphicon glyphicon-envelope"></span>
                 <?php echo do_shortcode('[mc4wp_form]'); ?>
               <a class="circle"><span class="glyphicon glyphicon-chevron-right"></span></a>

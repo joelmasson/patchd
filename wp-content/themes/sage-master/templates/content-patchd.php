@@ -3,22 +3,25 @@
 
 	if ($url != "" ){
 		$content = get_the_content();
-		if ( is_page(10) ) {
-		echo "<div class='splash row front-page'>";
+		if (get_field('parallax_splash') == true){
+			echo '<div class="splash row full-width-image front-page jarallax" style="background-image:url('.$url.')">
+					<div class="splash-image jarallax-content">'.$content.'</div>
+				  </div>';
 		} else {
-		echo "<div class='splash row'>";
-		}
-		echo "<div class='splash-image'>
-				<img src='".$url."' data-src='".$url."' class='splash-image-picture'>
-			</div>
-			<div class='splash-content'>
-				<div class='container'>
-					<div class='row'>
-						".$content."
+			echo "<div class='splash row'>
+				<div class='splash-image'>
+						<img src='".$url."' data-src='".$url."' class='splash-image-picture'>
+					</div>
+					<div class='splash-content'>
+						<div class='container'>
+							<div class='row'>
+								".$content."
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>";
+			</div>";
+		}
 	}
 		if( have_rows('partner') ):
 		    while ( have_rows('partner') ) : the_row();
@@ -198,10 +201,24 @@
 		        	echo 	"</div>
 		        			 <div class='col-xs-0 col-md-2'></div>
 		        		  </div></div>";
-		        elseif( get_row_layout() == 'full_width_image' ): 
-		        	$fw_image = get_sub_field('image');
-		        	$fw_content = get_sub_field('content');
-					echo "<div class='splash row'>
+	       		elseif( get_row_layout() == 'full_width_image' ): 
+	        		$fw_image = get_sub_field('image');
+	        		$fw_content = get_sub_field('content');
+	        		if (get_sub_field('parallax') == true){
+	        			echo "<div class='splash row full-width-image jarallax' style='background-image:url(".$fw_image['url'].");'>
+	        				<div class='splash-content text-left jarallax-content'>
+		        				<div class='container'>
+									<div class='row'>
+										<div class='col-xs-2 col-sm-8'></div>
+										<div class='col-xs-10 col-sm-4'>
+										".$fw_content."
+										</div>
+									</div>
+								</div>
+							</div>
+						  </div>";
+		        	} else {
+						echo "<div class='splash row full-width-image' style='background-image:url(".$fw_image['url'].");'>
 							<div class='splash-image'>
 								<img class='splash-image-picture' src='".$fw_image['url']."' data-src='".$fw_image['url']."' alt='".$fw_image['alt']."'>
 							</div>
@@ -216,6 +233,7 @@
 								</div>
 							</div>
 						</div>";
+					}
 		        elseif( get_row_layout() == 'quotes' ):
 		        echo "<div class='container'><div class='row text-center'><ul style='list-style:none;'>"; 
 		        	if( have_rows('quotes_block') ):

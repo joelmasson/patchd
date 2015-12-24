@@ -1,5 +1,5 @@
-.splash{
-	text-align:center
+.landing-column h2{
+    margin-top: 10px;
 }
 .accordion.row{
 	border-top:1px solid #6D6D6D;
@@ -17,6 +17,7 @@
     -ms-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    color: #a7a7a7;
 }
 .accordion .glyphicon.open{
 	-ms-transform: rotate(180deg); /* IE 9 */
@@ -27,7 +28,6 @@
     transition: all 0.5s ease;
 }
 .image-cicrle-mask{
-	background: #f26522;
     width: 90px;
     height: 90px;
     border-radius: 45px;
@@ -38,8 +38,19 @@
 	height:90px;
 }
 @media (max-width: 992px) {
-	.phone-outlines:nth-child(odd),
 	.heart-infogfx:nth-child(odd) {
 	    clear: both;
 	}
+}
+.bottom-gradient{
+	height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.75;
+    filter: Alpha(opacity=75);
+	background: -moz-linear-gradient(top,  rgba(51,51,51,0.01) 0%, rgba(51,51,51,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(51,51,51,0.01) 0%,rgba(51,51,51,1) 100%);
+	background: linear-gradient(to bottom,  rgba(51,51,51,0.01) 0%,rgba(51,51,51,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#333333',GradientType=0 );
 }

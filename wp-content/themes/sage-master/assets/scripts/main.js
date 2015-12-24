@@ -19,9 +19,69 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-        $('#nav-icon2').click(function(){
-          $(this).toggleClass('open');
+        $.get("http://ip-api.com/json", function(response) {
+            var domain = window.location.host;
+            var countryCode = response.countryCode;
+            if (countryCode === "GB" || countryCode === "GBR"){
+              $('.UK-site').show();
+              $('#shopLink').attr("href","http://shop.patchd.co.uk/");
+            } else if (countryCode === "AU" || countryCode === "AUS"){
+              $('.AU-site').show();
+              $('#shopLink').attr("href","http://shop.getpatchd.com.au/");
+            } else {
+              $('.US-site').show();
+              $('#shopLink').attr("href","http://shop.patchd.com/");
+            }
+        }, "jsonp");
+        $("#nav-nationality a").on('click',function(){
+          var className = $(this).attr('class');
+         if (className === "nation-AU"){
+            $('.AU-site').show();
+            $('.UK-site').hide();
+            $('.US-site').hide();
+            $('#shopLink').attr("href","http://shop.patchd.co.uk/");
+          } else if (className === "nation-UK"){
+            $('.AU-site').hide();
+            $('.UK-site').show();
+            $('.US-site').hide();
+            $('#shopLink').attr("href","http://shop.getpatchd.com.au/");
+          } else {
+            $('.AU-site').hide();
+            $('.UK-site').hide();
+            $('.US-site').show();
+            $('#shopLink').attr("href","http://shop.patchd.com/");
+          }
         });
+        $('#nationModal').on('hidden.bs.modal', function () {
+           nation = $(this).attr('data-nation');
+           setCookie(nation);
+        });
+        function setCookie(nation){
+          newCookie = "nationCookie="+nation;
+          document.cookie = newCookie;
+        }
+        $('.jarallax').jarallax({
+            speed: 0.2
+        });
+        $( window ).scroll(function() {
+          if ($(".dropdown-toggle").attr('aria-expanded') === 'true'){
+            $(".dropdown-toggle").dropdown('toggle');
+          }
+        });
+        $('#modalButton').click(function(){
+          $('#nav-icon2').toggleClass('open');
+          if ($('#nav-icon2').hasClass('open')){
+            $('.navbar-fixed-top').css('z-index', 1042);
+          }else{
+            $('.navbar-fixed-top').css('z-index', 1041);
+          }
+        });          
+        if ($('#nationModal').hasClass('in')){
+            $('.navbar-fixed-top').css('z-index', 1041);
+        }else{
+            $('.navbar-fixed-top').css('z-index', 1042);
+        }
+
         $('.accordion .glyphicon').click(function(){
           $(this).toggleClass('open');
         });
