@@ -28,8 +28,11 @@
             } else if (countryCode === "AU" || countryCode === "AUS"){
               $('.AU-site').show();
               $('#shopLink').attr("href","http://shop.getpatchd.com.au/");
-            } else {
+            } else if (countryCode === "US" || countryCode === "USA"){
               $('.US-site').show();
+              $('#shopLink').attr("href","http://shop.patchd.com/");
+            } else {
+              $('.INT-site').show();
               $('#shopLink').attr("href","http://shop.patchd.com/");
             }
         }, "jsonp");
@@ -39,16 +42,25 @@
             $('.AU-site').show();
             $('.UK-site').hide();
             $('.US-site').hide();
+            $('.INT-site').hide();
             $('#shopLink').attr("href","http://shop.patchd.co.uk/");
           } else if (className === "nation-UK"){
             $('.AU-site').hide();
             $('.UK-site').show();
             $('.US-site').hide();
+            $('.INT-site').hide();
             $('#shopLink').attr("href","http://shop.getpatchd.com.au/");
-          } else {
+          } else if (className === "nation-US") {
             $('.AU-site').hide();
             $('.UK-site').hide();
             $('.US-site').show();
+            $('.INT-site').hide();
+            $('#shopLink').attr("href","http://shop.patchd.com/");
+          } else {
+            $('.AU-site').hide();
+            $('.UK-site').hide();
+            $('.US-site').hide();
+            $('.INT-site').show();
             $('#shopLink').attr("href","http://shop.patchd.com/");
           }
         });
